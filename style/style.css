@@ -7,7 +7,7 @@
   --main-font-family: "Roboto", sans-serif;
   --second-font-family: "Space Mono", monospace;
 
-  --timing-duration: 250ms;
+  --timing-duration: 350ms;
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -129,17 +129,18 @@ ul {
   transition: color var(--timing-duration) var(--cubic);
 }
 
-.navigation .link {
-  transition: color var(--timing-duration) var(--cubic);
-}
-
-.nav-list .nav-item:not(:last-child) {
-  margin-right: 30px;
-}
-
-.link:focus,
-.link:hover {
+.nav-link:hover {
   color: var(--main-text-color);
+}
+
+.navigation .link:focus,
+.link-main:focus,
+.button-examples:focus,
+.link-examples:focus,
+.last-button:focus {
+  background: var(--main-text-color);
+  outline: 6px solid var(--main-text-color);
+  color: white;
 }
 
 .nav-button {
@@ -147,14 +148,10 @@ ul {
   color: var(--main-color);
   padding: 10px 15px;
   border-radius: 5px;
-  transition: color var(--timing-duration) var(--cubic),
-    background-color var(--timing-duration) var(--cubic);
 }
 
-.nav-button:hover,
-.nav-button:focus {
-  background-color: var(--accent-background-color);
-  color: var(--main-text-color);
+.navigation .link {
+  padding: 10px 15px;
 }
 
 /* !! -- main -- !!*/
@@ -186,9 +183,15 @@ ul {
 
 .link-main {
   text-decoration: underline;
-  text-decoration-color: var(--link-color);
-  text-decoration-thickness: 0.5px;
+  text-decoration-color: var(--accent-background-color);
+  text-decoration-thickness: 0.01px;
   text-underline-offset: 0.2em;
+
+  transition: text-decoration-thickness var(--timing-duration) var(--cubic);
+}
+
+.link-main:hover {
+  text-decoration-thickness: 2px;
 }
 
 .nav-span {
@@ -212,9 +215,9 @@ ul {
 .button-list {
   display: flex;
 }
-.button-list-item {
-  cursor: pointer;
 
+.button-list-item,
+.activ-button-item {
   font-size: 15px;
   letter-spacing: 0.05em;
 
@@ -222,10 +225,25 @@ ul {
   padding: 8px 12px;
 
   border: 1px solid var(--link-color);
+
+  transition: background-color var(--timing-duration) var(--cubic),
+    border var(--timing-duration) var(--cubic),
+    color var(--timing-duration) var(--cubic);
 }
 
-.button-list .button-list-item:not(:last-child) {
-  margin-right: 15px;
+.button-list-item:hover {
+  background-color: var(--link-color);
+  border: 1px solid transparent;
+  color: var(--main-color);
+}
+
+.button-list-item:focus {
+  background-color: var(--main-text-color);
+  color: var(--main-color);
+}
+
+.button-list-item {
+  margin-left: 15px;
 }
 
 .activ-button-item {
@@ -247,6 +265,10 @@ ul {
   margin-right: 60px;
 }
 
+.main-nav-link:focus {
+  text-decoration: underline;
+}
+
 .main-nav-item {
   padding: 12px;
 }
@@ -256,6 +278,7 @@ h3 {
   font-weight: inherit;
   line-height: 1.7;
 }
+
 
 /*  -- examples --  */
 
@@ -273,7 +296,7 @@ h3 {
 
 .example-item:nth-child(2n) {
   display: block;
-  padding: 5px;
+  padding: 7px;
 
   background-color: var(--accent-background-color);
   border-radius: 5px;
@@ -310,6 +333,10 @@ h3 {
 .small-button-examples {
   margin-top: 40px;
   font-size: 12px;
+}
+
+.small-button-examples:hover {
+  text-decoration: underline;
 }
 
 .examples-container {
@@ -353,8 +380,7 @@ h3 {
     background-color var(--timing-duration) var(--cubic);
 }
 
-.last-button:hover,
-.last-button:focus {
+.last-button:hover {
   background-color: var(--accent-background-color);
   color: var(--main-text-color);
 }
