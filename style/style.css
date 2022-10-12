@@ -267,7 +267,7 @@ ul {
 
 
 .main-nav-link:focus {
-  outline: none;
+  outline: var(--main-color);
 }
 
 .main-nav-item {
