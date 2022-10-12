@@ -265,8 +265,9 @@ ul {
   margin-right: 60px;
 }
 
+
 .main-nav-link:focus {
-  text-decoration: underline;
+  outline: var(--main-color);
 }
 
 .main-nav-item {
